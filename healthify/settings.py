@@ -24,14 +24,14 @@ SECRET_KEY = 'z8n#ctm9*o6d5*wa!jtggi_)93x(@v40(tzy5#=_mzy77b%(3)'
 
 SOCIAL_AUTH_FACEBOOK_KEY = '3075289795875794'
 SOCIAL_AUTH_FACEBOOK_SECRET = '020584c94f80ae79c34e63d7f08d465a'
-SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {       # add this
-      'fields': 'id, name, email, picture.type(large), link'
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+      'fields': 'id, name, email, picture.type(large), likes'
 }
 SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
     ('name', 'name'),
     ('email', 'email'),
     ('picture', 'picture'),
-    ('link', 'profile_url'),
+    ('likes', 'likes'),
 ]
 
 
