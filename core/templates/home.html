@@ -3,7 +3,7 @@
 {% block content %}
 <div class="row">
     <div class="col-sm-12 mb-3">
-        <h4 class="text-center"> Welcome {{ user.username }} </h4>
+        <h4 class="text-center"> Welcome {{ ass.extra_data.name }} </h4>
     </div>
 
     {% for ass in backends.associated %}
@@ -11,11 +11,16 @@
       <div class="col-md-6 text-center">
           <img src="{{ass.extra_data.picture.data.url}}" alt="" width="150" height="150" style="border-radius: 50%">
       </div>
-      <div class="col-md-6 social-container my-2">                 <p> Signed in via:  {{ ass.provider }} </p>
-          <p> Name:  {{ ass.extra_data.name }} </p>
-          <p> Likes: {{ ass.extra_data.likes }}</p>
-          <p> Friends: {{ ass.extra_data.friends }}</p>
-          <p> Events: {{ ass.extra_data.events }}</p>
+
+      <div class="col-md-6 social-container my-2">
+        <p> Signed in via:  {{ ass.provider }} </p>
+        <p> Name:  {{ ass.extra_data.name }} </p>
+        <p> Likes: {{ likeCount }}</p>
+        <p> Change in Likes: {{ changeInLikes }}</p>
+        <p> Friends: {{ friendCount }}</p>
+        <p> Change in Friends: {{ changeInFriends}}
+        <p> Events: {{ eventCount }}</p>
+        <p> Change in Events: {{ changeInEvents }}</p>
       </div>
     {% endif %}
     {% endfor %}
