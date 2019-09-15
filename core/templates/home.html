@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %} Home {% endblock %}
 {% block content %}
 <div class="row">
@@ -16,11 +17,29 @@
         <p> Signed in via:  {{ ass.provider }} </p>
         <p> Name:  {{ ass.extra_data.name }} </p>
         <p> Likes: {{ likeCount }}</p>
+        {% if trendLikes == 'neutral' %}
         <p> Change in Likes: {{ changeInLikes }}</p>
+        {% elif trendLikes == 'positive' %}
+        <p> Change in Likes: <img src="{% static 'upArrow.png' %}" width="40" height="40"> {{ changeInLikes }}</p>
+        {% else %}
+        <p> Change in Likes: <img src="{% static 'downArrow.png' %}" width="40" height="40"> {{ changeInLikes }}</p>
+        {% endif %}
         <p> Friends: {{ friendCount }}</p>
-        <p> Change in Friends: {{ changeInFriends}}
+        {% if trendFriends == 'neutral' %}
+        <p> Change in Friends: {{ changeInFriends }}</p>
+        {% elif trendFriends == 'positive' %}
+        <p> Change in Friends: <img src="{% static 'upArrow.png' %}" width="40" height="40"> {{ changeInFriends }}</p>
+        {% else %}
+        <p> Change in Friends: <img src="{% static 'downArrow.png' %}" width="40" height="40"> {{ changeInFriends }}</p>
+        {% endif %}
         <p> Events: {{ eventCount }}</p>
+        {% if trendEvents == 'neutral' %}
         <p> Change in Events: {{ changeInEvents }}</p>
+        {% elif trendEvents == 'positive' %}
+        <p> Change in Events: <img src="{% static 'upArrow.png' %}" width="40" height="40"> {{ changeInEvents }}</p>
+        {% else %}
+        <p> Change in Events: <img src="{% static 'downArrow.png' %}" width="40" height="40"> {{ changeInEvents }}</p>
+        {% endif %}
       </div>
     {% endif %}
     {% endfor %}
